@@ -26,7 +26,7 @@ Check out the [Jekyll docs][jekyll] for more info on how to get the most out of 
 ## Which ports are open ? (in numerical order)
 
 
-```bash
+```
 root@ip-10-10-127-246:~# nmap -sC -vv 10.10.127.143
 
 [...]
@@ -54,7 +54,7 @@ PORT     STATE SERVICE    REASON
 
 ## What programming language is the backend written in ?
 
-```bash
+```
 root@ip-10-10-127-246:~# nmap -sV -sC -vv 10.10.127.143
 
 [...]
