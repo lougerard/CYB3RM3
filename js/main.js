@@ -32,7 +32,7 @@ exclude: 'yes'
     if (window.location.hash && window.location.hash == '#blog') {
       $('.panel-cover').addClass('panel-cover--collapsed')
     }
-    if (window.location.hash && window.location.hash == '#Experience') {
+    if (window.location.hash && window.location.hash == '#experience') {
       $('.panel-cover').addClass('panel-cover--collapsed')
     }
 
