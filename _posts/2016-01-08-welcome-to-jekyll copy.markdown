@@ -21,9 +21,9 @@ print_hi('Tom')
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
 
 
-# TASK 1 : RECONNAISSANCE
+# TASK 1 : Reconnaissance
 
-## Which ports are open ? (in numerical order)
+### Which ports are open ? (in numerical order)
 
 
 ```bash
@@ -52,7 +52,7 @@ PORT     STATE SERVICE    REASON
 ```
 **Answer : 22,80,8080**
 
-## What programming language is the backend written in ?
+### What programming language is the backend written in ?
 
 ```bash
 root@ip-10-10-127-246:~# nmap -sV -sC -vv 10.10.127.143
