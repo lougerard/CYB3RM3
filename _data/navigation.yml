@@ -1,0 +1,16 @@
+- name: Root
+  link: /#root
+- name: Experience
+  link: /menu/experience
+- name: Education
+  link: /menu/education
+- name: Events
+  link: /menu/events.html
+- name: Skills
+  link: /menu/skills.html
+- name: Certificates
+  link: /menu/certificates.html
+- name: CTF & Writes Up
+  link: /#blog
+- name: About Me
+  link: /menu/aboutme.html
