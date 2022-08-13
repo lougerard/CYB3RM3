@@ -13,14 +13,6 @@ author:
   github_username:  lougerard
   linkedin_username:  louis-g%C3%A9rard-836b68b0
 
-#author:
-  #name: 'Josh Gerdes'
-  #email: josh@joshgerdes.com
-  #twitter_username: joshgerdes
-  #facebook_username: joshgerdes
-  #github_username:  joshgerdes
-  #linkedin_username:  joshgerdes
-
 defaults:
   -
     scope:
