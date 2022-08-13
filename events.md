@@ -1,6 +1,6 @@
 ---
 layout: events
 title: CYB3RM3 | Events
-permalink: /events
+permalink: /events/
 robots: noindex
 ---
