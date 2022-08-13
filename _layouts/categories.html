@@ -16,7 +16,7 @@ layout: default
 
     <ul> <!-- create the list of posts -->
       <!-- iterate through all the posts on the site --> 
-      {% for post in site.posts %}
+      {% for post in site.categories.CTF %}
         <!-- list only those which contain the current tag --> 
         {% if post.categories contains catitem[0] %} 
             <li>
