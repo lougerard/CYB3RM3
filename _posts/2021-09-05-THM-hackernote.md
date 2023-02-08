@@ -3,7 +3,7 @@ title:  HACKERNOTE
 name: CYB3RM3 | Events
 date:   2022-08-12 11:10:00
 categories: [CTF]
-tags: [test]
+tags: [test,TryHackMe]
 ---
 A custom webapp, introducing username enumeration, custom wordlists and a basic privilege escalation exploit.
 
@@ -123,32 +123,25 @@ wc wordlist.txt
 
 Answer : 180
 
-#### What was the user's password?
-    
+#### What was the user's password?  
 I do a cluster bomb attack with BURPSUITE and the wordlist.txt and i get the result blue7 password match with a different length.
 
 Answer : bleu7
 
 #### Login as the user to the platform
-    
-
-No answer but James let us a note as reminder with his SSH password :dak4ddb37b
+No answer but James let us a note as reminder with his SSH password : dak4ddb37b
 
 #### What's the user's SSH password?
-    
-
 Answer : dak4ddb37b
 
 #### Log in as the user to SSH with the credentials you have.
-    
 ```console
 ssh james@10.10.127.143
 ```
 
 No answer
 
-#### What's the user flag?
-    
+#### What's the user flag?  
 ```console
 cat user.txt  
 thm{56911bd7ba1371a3221478aa5c094d68}
@@ -156,17 +149,14 @@ thm{56911bd7ba1371a3221478aa5c094d68}
 
 Answer :thm{56911bd7ba1371a3221478aa5c094d68}
 
-
-
 ## **TASK 5 : Escalate** <a name="Escalate"></a>
 
-#### What is the CVE number for the exploit?
-    
+#### What is the CVE number for the exploit? 
 Reading the texttell us the recent CVE is "pwdfeedback" and googling"pwdfeedback" return theCVE-2019-18634.  
 Answer :CVE-2019-18634
 
 #### Find the exploit from [https://github.com/saleemrashid/](https://github.com/saleemrashid/) and download the files.
-    
+
 ```console
 cd Deskstop  
 mkdir cve-2019-18634  
