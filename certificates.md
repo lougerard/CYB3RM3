@@ -1,6 +1,6 @@
 ---
-layout: experience
-title: CYB3RM3 | Experience
+layout: propgress
+title: CYB3RM3 | Certificates
 permalink: /progress/
 robots: noindex
 ---
