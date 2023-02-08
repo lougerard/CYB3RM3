@@ -1,9 +1,9 @@
 ---
-title:  HACKERNOTE
-name: CYB3RM3 | Events
-date:   2022-08-12 11:10:00
+title:  Hackernote
+name: CYB3RM3 | Hackernote
+date:   2021-09-05 13:46:58
 categories: [CTF]
-tags: [test,TryHackMe]
+tags: [TryHackMe]
 ---
 A custom webapp, introducing username enumeration, custom wordlists and a basic privilege escalation exploit.
 
