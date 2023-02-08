@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html data-theme="dark">
+<html>
   {% include head.html %}
 
   <body>
     {% include header.html %}
-    {% include search.html %}
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
+        <div id="search-container">
+            <input type="search" name="search" id="search-input" placeholder="What are you looking for?">
+            <ul id="results-container"></ul>
+        </div>
         {{ content }}
       </div>
 
