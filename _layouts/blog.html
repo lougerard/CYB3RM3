@@ -1,10 +1,12 @@
 ---
-layout: default_search
+layout: defaultSearch
 robots: noindex
 ---
-
+<div id="search-container">
+  <input type="search" name="search" id="search-input" placeholder="What are you looking for?">
+  <ul id="results-container"></ul>
+</div>
 <div class="main-post-list">
-  {% include search.html %}
   <ol class="post-list">
     {% for post in paginator.posts %}
       <li>
