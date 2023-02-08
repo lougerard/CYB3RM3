@@ -6,6 +6,13 @@
 
 /* Modifications */
 
+html[data-theme='dark'] {
+  --bg: #333;
+  --bg-secondary: #444;
+  --headings: #39f;
+  --text: #bbb;
+}
+
 pre.highlight,
 .highlight pre {
   padding: 10px;
