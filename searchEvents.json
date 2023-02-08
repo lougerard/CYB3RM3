@@ -1,0 +1,14 @@
+---
+layout: null
+---
+[
+    {% for events in site.events %}
+        {
+        "title"    : "{{ events.title | escape }}",
+        "category" : "{{ events.category }}",
+        "tags"     : "{{ events.tags | join: ', ' }}",
+        "url"      : "{{ site.baseurl }}{{ events.url }}",
+        "content": "{{ page.content | strip_html | strip_newlines | remove_chars | escape }}"
+        } {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+]
