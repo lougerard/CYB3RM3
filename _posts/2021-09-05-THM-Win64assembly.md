@@ -27,64 +27,64 @@ No answer needed
 
 ## **TASK 2 : Number Systems** <a name="NumberSystems"></a>
 
-####  What is 0xA in decimal?
+* ####  What is 0xA in decimal?
 
 Answer : 10
 
-#### What is decimal 25 in hexadecimal? Include the prefix for hexadecimal.
+* #### What is decimal 25 in hexadecimal? Include the prefix for hexadecimal.
 Answer : 0x19
 
 ## **TASK 3 : Bits and Bytes** <a name="BitsandBytes"></a>
 
-#### How many bytes is a WORD ?
+* #### How many bytes is a WORD ?
 Answer : 2
 
-#### How many bits is a WORD ?
+* #### How many bits is a WORD ?
 Answer : 16
 
 ## **TASK 4 : Binary Operations** <a name="BinaryOperations"></a>
 
-#### What is the result of the binary operation: 1011 AND 1100 ?
+* #### What is the result of the binary operation: 1011 AND 1100 ?
 Answer : 1000
 
-#### What is the result of the binary operation: 1011 NAND 1100? Include leading zeroes.
+* #### What is the result of the binary operation: 1011 NAND 1100? Include leading zeroes.
 Answer : 0111
 
 ## **TASK 5 : Registers** <a name="Registers"></a>
 
-#### How many bytes is RAX ?
+* #### How many bytes is RAX ?
 Answer : 8
 
-#### How many bytes is EAX ?
+* #### How many bytes is EAX ?
 Answer : 4
 
 ## **TASK 6 : Instructions** <a name="Instructions"></a>
 
-#### What instruction returns from a function ?
+* #### What instruction returns from a function ?
 Answer : ret
 
-#### What instruction will call/execute a function ?
+* #### What instruction will call/execute a function ?
 Answer : call
 
-#### What instruction could be used to save a register in a way that it can later be restored ?
+* #### What instruction could be used to save a register in a way that it can later be restored ?
 Answer : push
 
 ## **TASK 7 : Flags** <a name="Flags"></a>
 
-#### If two equal values are compared to each other, what will ZF be set to as result of the comparison ?
+* #### If two equal values are compared to each other, what will ZF be set to as result of the comparison ?
 Answer : 1
 
 ## **TASK 8 : Calling Conventions** <a name="CallingConventions"></a>
 
-#### In fastcall, what 64-bit register will hold the return value of a function ?
+* #### In fastcall, what 64-bit register will hold the return value of a function ?
 Answer : RAX  
 
-#### In fastcall, what register is the first function parameter passed in ?
+* #### In fastcall, what register is the first function parameter passed in ?
 Answer : RCX  
 
 ## **TASK 9 : Memory Layout** <a name="MemoryLayout"></a>
 
-#### In what order is data taken off of or put onto the stack? Provide the acronym.  
+* #### In what order is data taken off of or put onto the stack? Provide the acronym.  
 
 Answer : LIFO (Last In First Out)  
 

@@ -1,6 +1,6 @@
 ---
-layout: progress
+layout: certificates
 title: CYB3RM3 | Certificates
-permalink: /progress/
+permalink: /certificates/
 robots: noindex
 ---

