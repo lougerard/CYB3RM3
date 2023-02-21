@@ -3,7 +3,7 @@ title:  Windows x64 Assembly
 name: CYB3RM3 | Windows x64 Assembly
 date:   2021-09-05 18:35:57
 categories: [CTF]
-tags: [TryHackMe, assembly]
+tags: [TryHackMe, Assembly]
 ---
 
 Introduction to x64 Assembly on Windows.

@@ -1,6 +1,6 @@
 ---
-title:  Learn linux
-name: CYB3RM3 | Learn linux
+title:  Linux modules
+name: CYB3RM3 | Linux modules
 date:   2021-09-14 20:24:31
 categories: [CTF]
 tags: [TryHackMe]
@@ -353,7 +353,7 @@ Answer : --
 
 No Answer
 
-* #### Download the file given for this ## **TASK, find the uniq items after sorting the file. What is the 2271st word in the output ?  
+* #### Download the file given for this TASK, find the uniq items after sorting the file. What is the 2271st word in the output ?  
     
     
 ```console
